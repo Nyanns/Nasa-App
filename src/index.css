@@ -1,0 +1,256 @@
+/* Reset dasar */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%; /* Pastikan tinggi penuh */
+  margin: 0; /* Hapus margin */
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: row; /* Umumnya digunakan untuk layout aplikasi */
+  /* Berikut yang benar */
+  position: relative; /* Untuk keperluan positioning absolute di dalam #root jika diperlukan */
+  overflow-y: hidden; /* Mencegah scroll vertikal di dalam #root */
+  overflow-x: hidden; /* Opsional: Mencegah scroll horizontal di dalam #root */
+}
+
+.main__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center; /* Untuk memastikan gambar tetap terpusat jika ada ruang kosong */
+}
+
+.image-container {
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* Isi ruang kosong di root */
+}
+
+/* Atur elemen dasar */
+html,
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden; /* Mencegah scroll pada body */
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+  font-family: "VT323", monospace;
+  line-height: 1.5;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-synthesis: none;
+}
+
+/* Atur elemen gambar dan media */
+img,
+picture,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  display: block;
+}
+
+/* Atur heading */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 400;
+  line-height: inherit;
+  color: inherit;
+}
+
+.footer {
+  position: fixed; /* Agar footer selalu tetap di bawah layar */
+  bottom: 0; /* Menempel di bagian bawah */
+  left: 0; /* Mulai dari sisi kiri */
+  width: 100%; /* Lebar penuh */
+  display: flex; /* Flexbox untuk pengaturan tata letak */
+  justify-content: space-between; /* Ruang di antara elemen footer */
+  align-items: flex-end; /* Pastikan elemen sejajar di bawah */
+}
+
+.footer__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.footer__subtitle {
+  box-sizing: border-box; /* Penting untuk kontrol ukuran */
+  font-size: 1.5rem; /* Sedikit mengurangi ukuran font */
+  min-height: 0rem; /* Memberikan tinggi minimum */
+  margin: 0;
+  padding: 0; /* Padding vertikal dan horizontal berbeda */
+  line-height: 1;
+}
+
+.footer__title {
+  box-sizing: border-box; /* Penting untuk kontrol ukuran */
+  font-size: 3rem;
+  /* height: auto; Hapus atau ganti dengan min-height*/
+  min-height: 0rem; /*Contoh*/
+  margin: 0;
+  padding: 0;
+  line-height: 1;
+}
+
+.footer__button {
+  background-color: transparent;
+  box-sizing: border-box; /* Mengatur ukuran elemen agar padding dan border dihitung dalam dimensi total */
+  font-size: 1rem; /* Ukuran font default */
+  min-height: 2.5rem; /* Tinggi minimum tombol */
+  margin: 0; /* Menghapus margin default */
+  padding: 0.5rem 1rem; /* Padding: vertikal 0.5rem, horizontal 1rem */
+  outline: none; /* Menghapus outline default */
+  border: none; /* Menghapus border default */
+  line-height: 1; /* Menyesuaikan tinggi baris */
+  color: white; /* Warna teks */
+  cursor: pointer; /* Menampilkan pointer saat tombol dapat diklik */
+  border-radius: 4px; /* Membuat sudut tombol sedikit membulat */
+  position: relative; /* Untuk elemen dekoratif di dalam tombol */
+  overflow: hidden; /* Agar elemen animasi bintang tidak keluar dari tombol */
+  transition: transform 0.2s ease, background-color 0.3s ease; /* Animasi transisi */
+}
+
+/* Efek Hover */
+.footer__button:hover {
+  transform: scale(1.2); /* Efek pembesaran saat hover */
+}
+
+/* Efek Saat Ditekan */
+.footer__button:active {
+  transform: scale(0.98); /* Sedikit mengecil saat ditekan */
+}
+
+/* Animasi Bintang */
+.footer__button::before {
+  content: "";
+  position: absolute;
+  top: -50%; /* Mulai di luar area tombol */
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    white,
+    transparent 70%
+  ); /* Bintang dengan warna putih */
+  opacity: 0.1; /* Transparansi untuk efek bintang */
+  animation: sparkle 5s linear infinite; /* Animasi loop tanpa henti */
+  pointer-events: none; /* Tidak mengganggu klik */
+}
+
+/* Keyframes Animasi */
+@keyframes sparkle {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-20%, -20%) scale(1.2); /* Sedikit bergerak dan membesar */
+  }
+  100% {
+    transform: translate(20%, 20%) scale(1); /* Kembali ke posisi awal */
+  }
+}
+
+.bgGradient {
+  position: absolute;
+  inset: 1;
+  z-index: 1;
+  background-color: blueviolet;
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+  height: 100%;
+}
+
+.bgOverlay {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.sidebar__content {
+  z-index: 15;
+  position: relative;
+  display: flex;
+  gap: 1rem;
+  padding: 1rem;
+  flex-direction: column;
+  overflow-y: scroll; /* Tambahkan overflow scroll */
+  height: 100%; /* Pastikan tinggi diatur */
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  background-color: #242424;
+}
+
+.sidebar__title {
+  font-size: 2rem;
+}
+
+.sidebar__description {
+  flex: 1;
+}
+
+.sidebar__descriptionTitle {
+  font-size: 1.5rem;
+}
+
+.sidebar__text {
+  font-size: 1.3rem;
+}
+
+.sidebar__faArrowRight {
+  background-color: transparent;
+  border: none;
+  color: whitesmoke;
+  outline: none;
+  margin-right: auto;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.sidebar__faArrowRight:hover {
+  transform: scale(1.2);
+}
+
+@media (min-width: 480px) {
+  .sidebar {
+    position: relative;
+    inset: unset;
+    min-width: 25vw;
+    max-width: 40vw;
+    width: clamp(300px, 30%, 50%);
+    box-shadow: 0 0 40px 10px rgba(0, 0, 0, 0.5);
+  }
+
+  .sidebar__content {
+    margin: unset;
+  }
+}

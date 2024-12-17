@@ -1,0 +1,33 @@
+# Ignore environment files
+.env
+.env.local
+.env.*.local
+
+# Ignore node_modules
+node_modules/
+
+# Ignore build output
+dist/
+build/
+
+# Ignore logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore editor-specific files
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore lock files (optional, if using one package manager exclusively)
+package-lock.json
+yarn.lock
+
+# Ignore specific folders
+/config/.env  # Jika Anda menyimpan .env dalam folder 'config'
