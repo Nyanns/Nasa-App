@@ -18,7 +18,7 @@ A simple React app that fetches the Astronomy Picture of the Day (APOD) from NAS
 
 Check out the live demo [here](https://nasaviewnyanns.netlify.app/)!
 
-![Game](https://github.com/Nyanns/Nasa-App/blob/main/Recording2024-12-17.mp4)
+![Game](https://github.com/Nyanns/Nasa-App/blob/main/ScreenRecording2024-12-17105126-ezgif.com-video-to-gif-converter.gif)
 
 ---
 
